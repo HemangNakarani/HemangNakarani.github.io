@@ -11,7 +11,6 @@ import playformCompress from "@playform/compress";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://hemangnakarani.github.io/",
   prefetch: true,
   markdown: {
     ...markdownConfig,
@@ -44,4 +43,10 @@ export default defineConfig({
     }),
     playformCompress(),
   ],
+  site: "https://hemangnakarani.github.io/",
+  output: "static",
+  outDir: "./docs",
+  build: {
+    assets: "astro",
+  },
 });
