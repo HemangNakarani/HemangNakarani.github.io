@@ -1,0 +1,126 @@
+---
+import "@fontsource-variable/space-grotesk";
+import "@fontsource-variable/manrope";
+import "@fontsource/poppins/100.css";
+import "@fontsource/poppins/200.css";
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/800.css";
+import "@fontsource/poppins/900.css";
+
+import { SEO } from "astro-seo";
+const canonicalURL = new URL(Astro.url.pathname, Astro.url.origin).toString();
+const resolvedImageWithDomain = new URL(
+  "/image.jpeg",
+  Astro.url.origin
+).toString();
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+import { ViewTransitions } from "astro:transitions";
+import preload from "astro-preload";
+import Glow from "../components/Glow";
+const makeTitle = title ? title : "Hemang Nakarani  | Portfolio";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Hemang Nakarani - FullStack Software Engineer. Explore my portfolio showcasing my expertise in developing fullstack solutions"
+    />
+    <meta
+      name="keywords"
+      content="Hemang Nakarani , Full Stack Software Engineer, Software Developer, React.js, Next.Js, Java, TypeScript, Golang, JavaScript, Portfolio, Web Development, HTML, CSS, Frontend Development, Backend Development, Responsive Design, UI/UX, Software Engineer, Code, Programming, Tech Enthusiast, Project Showcase, Software Development, Web Applications, GraphQL, RESTful APIs, Node.js, Express.js, MongoDB, MySQL, Git, Version Control, Mobile-First, SEO Optimization, Performance Optimization, Cross-Browser Compatibility, Modern Web Technologies, Creative Developer, Innovative Solutions, Problem-Solving, Technical Skills, Professional Experience, Open Source Contributions, Personal Projects, Code Quality, Debugging, Collaboration, GitHub, Software Architecture, Coding Standards, User Experience, Web Design, Creative Coding, Software Engineer Portfolio, Online Presence, Digital Resume, Tech Stack, Technical Portfolio, Developer Showcase, Programming Portfolio, JavaScript Developer, Software Development Portfolio, Web Development Portfolio, Coding Portfolio, Web Developer Bio, Professional Background, Personal Achievements, Technical Expertise, Computer Science, Backend Engineer, Frontend Engineer, Software Developer Resume, Professional Web Developer, Portfolio Website, Innovative Web Solutions, Experienced Developer, Web Development Services, Coding Portfolio, Programming Portfolio, Software Engineer Portfolio, Full Stack Developer Portfolio, Online Portfolio, Creative Developer, Personal Portfolio, Tech Portfolio, Showcase Projects, Technology Enthusiast, Code Portfolio, GitHub Repository, Software Development Showcase, Portfolio Design, Code Showcase, Modern Web Developer, Digital Portfolio, Tech Projects, Innovative Coding, Full Stack Developer Skills, Web Development Career, Building Web Applications, Code Portfolio Showcase, Developer Journey, Code Quality Standards, Software Development Process, Professional Developer, Web Developer Expertise, Frontend Development Skills, Backend Development Skills, Programming Languages, Web Technologies, Coding Standards, Web Developer Tools, Software Development Tools, Developer Portfolio Showcase, Web Development Experience, Tailwind CSS Portfolio, React Portfolio, Astro Framework Portfolio, Personal Website, SEO-Friendly Portfolio, Optimized Code, Web Development Best Practices"
+    />
+    <meta name="author" content="Hemang Nakarani" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta
+      name="google-site-verification"
+      content="AuMlxg6HJG3Rwtp1H81O3OmPVW4WaI5jrk1X4Onm0hU"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <SEO
+      title={makeTitle}
+      description="Hemang Nakarani - Portfolio"
+      canonical={canonicalURL}
+      twitter={{
+        creator: "@hemmmang",
+        site: "@hemmmang",
+        card: "summary_large_image",
+      }}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: `Hemang Nakarani  | Portfolio`,
+          image: resolvedImageWithDomain,
+        },
+        image: {
+          alt: "Hemang Nakarani",
+        },
+        optional: {
+          description: `Hemang Nakarani - Portfolio`,
+        },
+      }}
+    />
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-S9TKKTL84G"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-S9TKKTL84G");
+    </script>
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <Glow client:only />
+    <slot />
+
+    <style is:global>
+      * {
+      }
+      img {
+        content-visibility: auto;
+      }
+      body {
+        cursor: url("/cursor.png"), auto;
+        font-family: "Poppins", sans-serif;
+        background: #00001a;
+        background-size: 22px 22px;
+        overflow-x: hidden;
+      }
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background-color: rgba(20, 20, 20);
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: #5b5b5b;
+      }
+    </style>
+    <script src="../utils/aos.js"></script>
+  </body>
+</html>
